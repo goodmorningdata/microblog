@@ -11,6 +11,8 @@ class Config(object):
         'sqlite:///' + os.path.join(basedir, 'app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+    POSTS_PER_PAGE = 3
+
     # Email server details.
     # Test mail server is not working - FIX THIS!
     # MAIL_SERVER = os.environ.get('MAIL_SERVER')
