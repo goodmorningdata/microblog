@@ -1,10 +1,10 @@
-2019-09-01 12:44:35,928 ERROR: Exception on /edit_profile [POST] [in /Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+2019-09-01 15:29:16,250 ERROR: Exception on / [GET] [in /Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
     cursor, statement, parameters, context
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
     cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+sqlite3.OperationalError: no such table: user
 
 The above exception was the direct cause of the following exception:
 
@@ -17,40 +17,40 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/routes.py", line 80, in edit_profile
-    db.session.commit()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
-    return getattr(self.registry(), name)(*args, **kwargs)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1027, in commit
-    self.transaction.commit()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 494, in commit
-    self._prepare_impl()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 473, in _prepare_impl
-    self.session.flush()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2459, in flush
-    self._flush(objects)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2597, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
-    compat.reraise(exc_type, exc_value, exc_tb)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
-    raise value
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2557, in _flush
-    flush_context.execute()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
-    rec.execute(self)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 589, in execute
-    uow,
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 236, in save_obj
-    update,
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 996, in _emit_update_statements
-    statement, multiparams
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1947, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2241, in preprocess_request
+    rv = func()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/routes.py", line 121, in before_request
+    if current_user.is_authenticated:
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 307, in _get_current_object
+    return self.__local()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/models.py", line 70, in load_user
+    return User.query.get(int(id))
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3292, in one
+    ret = self.one_or_none()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3261, in one_or_none
+    ret = list(self)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3359, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
     return meth(self, multiparams, params)
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
@@ -69,15 +69,10 @@ Traceback (most recent call last):
     cursor, statement, parameters, context
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
     cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=? WHERE user.id = ?]
-[parameters: ('amy', 1)]
-(Background on this error at: http://sqlalche.me/e/gkpj)
-2019-09-01 12:49:06,266 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 14:04:59,308 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 14:05:14,185 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 14:57:36,809 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 14:58:29,839 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 15:01:55,779 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 15:02:39,903 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
-2019-09-01 15:16:36,189 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (1,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-09-01 15:30:02,975 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]

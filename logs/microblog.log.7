@@ -1,13 +1,4 @@
-2019-09-01 15:20:52,651 ERROR: Exception on /index [GET] [in /Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
-Traceback (most recent call last):
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
+2019-09-01 22:14:29,333 ERROR: Exception on /index [GET] [in /Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -17,61 +8,82 @@ Traceback (most recent call last):
     reraise(exc_type, exc_value, tb)
   File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
     raise value
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1947, in full_dispatch_request
-    rv = self.preprocess_request()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2241, in preprocess_request
-    rv = func()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/routes.py", line 121, in before_request
-    if current_user.is_authenticated:
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
-    return getattr(self._get_current_object(), name)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 307, in _get_current_object
-    return self.__local()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
-    current_user = LocalProxy(lambda: _get_user())
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
-    current_app.login_manager._load_user()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
-    return self.reload_user()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
-    user = self.user_callback(user_id)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/models.py", line 70, in load_user
-    return User.query.get(int(id))
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 959, in get
-    return self._get_impl(ident, loading.load_on_pk_identity)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1069, in _get_impl
-    return db_load_fn(self, primary_key_identity)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 282, in load_on_pk_identity
-    return q.one()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3292, in one
-    ret = self.one_or_none()
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3261, in one_or_none
-    ret = list(self)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3334, in __iter__
-    return self._execute_and_instances(context)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3359, in _execute_and_instances
-    result = conn.execute(querycontext.statement, self._params)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
-    return meth(self, multiparams, params)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
-    return connection._execute_clauseelement(self, multiparams, params)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
-    distilled_params,
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1253, in _execute_context
-    e, statement, parameters, cursor, context
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1473, in _handle_dbapi_exception
-    util.raise_from_cause(sqlalchemy_exception, exc_info)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 398, in raise_from_cause
-    reraise(type(exception), exception, tb=exc_tb, cause=cause)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 152, in reraise
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/routes.py", line 22, in index
+    posts=posts)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
     raise value.with_traceback(tb)
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1249, in _execute_context
-    cursor, statement, parameters, context
-  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 552, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.id = ?]
-[parameters: (1,)]
-(Background on this error at: http://sqlalche.me/e/e3q8)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/index.html", line 19, in block "content"
+    {% include '_posts.html' %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _posts.html
+2019-09-01 22:14:31,087 ERROR: Exception on /index [GET] [in /Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2446, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1951, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1820, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1949, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1935, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/routes.py", line 22, in index
+    posts=posts)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 140, in render_template
+    ctx.app,
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 120, in _render
+    rv = template.render(context)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/asyncsupport.py", line 76, in render
+    return original_render(self, *args, **kwargs)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 1008, in render
+    return self.environment.handle_exception(exc_info, True)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/environment.py", line 780, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/jinja2/_compat.py", line 37, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/base.html", line 31, in top-level template code
+    {% block content %}{% endblock %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/app/templates/index.html", line 19, in block "content"
+    {% include '_posts.html' %}
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 60, in get_source
+    return self._get_source_fast(environment, template)
+  File "/Users/amyliz/Documents/Computer Science/Python/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 89, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: _posts.html
+2019-09-01 22:15:14,818 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+2019-09-01 22:27:21,996 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+2019-09-01 22:47:52,258 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+2019-09-01 22:50:35,202 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+2019-09-01 23:00:23,398 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:34]
+2019-09-01 23:14:44,404 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:36]
+2019-09-03 11:20:17,844 INFO: Microblog startup [in /Users/amyliz/Documents/Computer Science/Python/microblog/app/__init__.py:38]
